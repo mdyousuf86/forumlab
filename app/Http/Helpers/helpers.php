@@ -446,3 +446,13 @@ function showAdvertisement()
         echo $html;
     }
 }
+
+function siteLogo($type = null)
+{
+    $name = $type ? "/logo_$type.png" : '/logo.png';
+    return getImage(getFilePath('logoIcon') . $name);
+}
+function siteFavicon()
+{
+    return getImage(getFilePath('logoIcon') . '/favicon.png');
+}

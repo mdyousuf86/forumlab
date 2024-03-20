@@ -198,33 +198,33 @@
                                             class="fli-sort-down"></i></span></button>
                                 <ul class="dropdown--menu tagArea">
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Breaking Topic</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Breaking Topic')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Crypto Market</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Crypto Market')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Web Host</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Web Host')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Java</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Java')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Crypto Market</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Crypto Market')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Application Server</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Application Server')</a>
                                     </li>
                                     <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">Wordpress</a>
+                                        <a href="#" class="dropdown--menu__link">@lang('Wordpress')</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">Latest</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">Unread</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">Rising</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">Most Liked</a></li>
+                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Latest')</a></li>
+                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Unread')</a></li>
+                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Rising')</a></li>
+                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Most Liked')</a></li>
                     </ul>
                     <a href="{{route('user.topic.form')}}" class="btn btn--dark">@lang('Create Topic')<i class="fli-plus"></i></a>
                 </div>

@@ -1,122 +1,112 @@
 @extends($activeTemplate . 'layouts.master')
 @section('content')
-
-    <div class="row gy-4">
-        <div class="col-lg-6 col-sm-6">
-            <div class="d-widget">
-                <a class="d-widget__btn text--base border--base"  href="{{ route('user.topic.list') }}">
-                    <i class="las la-arrow-right"></i>
-                </a>
-                <div class="d-widget__icon text--base border--base">
-                    <i class="las la-list-ul"></i>
-                </div>
-                <div class="d-widget__content">
-                    <h3 class="amount">{{ $widget['total_topic'] }}</h3>
-                    <p class="caption">@lang('Total Topic')</p>
+    
+    <div class="row gy-3 mb-4 justify-content-center dashboard-widget-wrapper">
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="dashboard-widget">
+                <span class="dashboard-widget__tag">@lang('Total Topics')</span>
+                <h3 class="dashboard-widget__number">{{ $widget['total_topic'] }}</h3>
+                <a href="{{ route('user.topic.list') }}" class="dashboard-widget__btn btn btn--base">@lang('View All')</a>
+                <div class="dashboard-widget__icon">
+                    <i class="fli-file"></i>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
-            <div class="d-widget">
-                <a class="d-widget__btn text--warning border--warning"  href="{{ route('user.topic.list') }}?status=0">
-                    <i class="las la-arrow-right"></i>
-                </a>
-                <div class="d-widget__icon text--warning border--warning">
-                    <i class="las la-spinner"></i>
-                </div>
-                <div class="d-widget__content">
-                    <h3 class="amount">{{ $widget['pending_topic'] }}</h3>
-                    <p class="caption">@lang('Pending Topic')</p>
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="dashboard-widget">
+                <span class="dashboard-widget__tag">@lang('Pending Topics')</span>
+                <h3 class="dashboard-widget__number">{{ $widget['pending_topic'] }}</h3>
+                <a href="{{ route('user.topic.list') }}?status=0"
+                    class="dashboard-widget__btn btn btn--base">@lang('View All')</a>
+                <div class="dashboard-widget__icon">
+                    <i class="fli-prosesing"></i>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
-            <div class="d-widget">
-                <a class="d-widget__btn text--success border--success"  href="{{ route('user.topic.list') }}?status=1">
-                    <i class="las la-arrow-right"></i>
-                </a>
-                <div class="d-widget__icon text--success border--success">
-                    <i class="las la-check-circle"></i>
-                </div>
-                <div class="d-widget__content">
-                    <h3 class="amount">{{ $widget['approved_topic'] }}</h3>
-                    <p class="caption">@lang('Approved Topic')</p>
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="dashboard-widget">
+                <span class="dashboard-widget__tag">@lang('Approved Topics')</span>
+                <h3 class="dashboard-widget__number">{{ $widget['approved_topic'] }}</h3>
+                <a href="{{ route('user.topic.list') }}?status=1"
+                    class="dashboard-widget__btn btn btn--base">@lang('View All')</a>
+                <div class="dashboard-widget__icon">
+                    <i class="fli-file-check"></i>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
-            <div class="d-widget">
-                <a class="d-widget__btn text--danger border--danger"  href="{{ route('user.topic.list') }}?status=3">
-                    <i class="las la-arrow-right"></i>
-                </a>
-                <div class="d-widget__icon text--danger border--danger">
-                    <i class="las la-times"></i>
-                </div>
-                <div class="d-widget__content">
-                    <h3 class="amount">{{ $widget['rejected_topic'] }}</h3>
-                    <p class="caption">@lang('Rejected Topic')</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <h6 class="ms-1 mb-2">@lang('Latest Approved Topics')</h6>
-            <div class="custom--card ">
-                <div class="card-body p-0">
-                    <div class="table-responsive--md">
-                        <table class="custom--table table">
-                            <thead>
-                                <tr>
-                                    <th>@lang('Title')</th>
-                                    <th>@lang('Subcategory')</th>
-                                    <th>@lang('Up - Down Vote')</th>
-                                    <th>@lang('Action')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($topics as $topic)
-                                    <tr>
-                                        <td>
-                                            {{ strLimit(__($topic->title), 25) }}
-                                        </td>
-                                        <td>
-                                            {{ __(@$topic->subcategory->name) }}
-                                        </td>
-                                        <td>
-                                            <i class="las la-arrow-up text--success"></i>
-                                            {{ $topic->up_vote }}
-                                            -
-                                            <i class="las la-arrow-down text--danger"></i>
-                                            {{ $topic->down_vote }}
-                                        </td>
-                                        <td>
-                                            <div class="d-inline-flex justify-content-end flex-wrap gap-2">
-                                                <a class="btn btn-outline--base btn--sm" href="{{ route('user.topic.detail', $topic->id) }}">
-                                                    <i class="las la-desktop"></i> @lang('Detail')
-                                                </a>
-                                                <a class="btn btn-outline--success btn--sm" href="{{ route('user.topic.form', $topic->id) }}">
-                                                    <i class="las la-edit"></i> @lang('Edit')
-                                                </a>
-                                                <button class="btn--sm btn-outline--danger btn confirmationBtn" data-action="{{ route('user.topic.delete', $topic->id) }}" data-question="@lang('Are you sure delete this topic')?">
-                                                    <i class="las la-trash-alt"></i> @lang('Delete')
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td class="text-center" colspan="100%">
-                                            <i class="las la-frown"></i><br>
-                                            <span>{{ __($emptyMessage) }}</span>
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="dashboard-widget">
+                <span class="dashboard-widget__tag">@lang('Rejected Topics')</span>
+                <h3 class="dashboard-widget__number">{{ $widget['rejected_topic'] }}</h3>
+                <a href="{{ route('user.topic.list') }}?status=3"
+                    class="dashboard-widget__btn btn btn--base">@lang('View All')</a>
+                <div class="dashboard-widget__icon">
+                    <i class="fli-file-cross"></i>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-12">
+            <table class="table table--responsive--lg">
+                <thead>
+                    <tr>
+                        <th>@lang('TITLE')</th>
+                        <th>@lang('SUBTITLE')</th>
+                        <th>@lang('UP - DOWN VOTE')</th>
+                        <th>@lang('ACTION')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($topics as $topic)
+                        <tr>
+                            <td data-label="TITLE">
+                                {{ strLimit(__($topic->title), 25) }}
+                            </td>
+                            <td data-label="SUBTITLE">
+                                {{ __(@$topic->subcategory->name) }}
+                            </td>
+                            <td data-label="UP - DOWN VOTE">
+                                <div class="up-down-vote">
+                                    <span class="up-down-vote__item">
+                                        <span class="icon"><i class="fli-caret-up"></i></span>
+                                        <span class="text">{{ $topic->up_vote }}</span>
+                                    </span>
+                                    <span class="up-down-vote__item">
+                                        <span class="icon"><i class="fli-caret-down"></i></span>
+                                        <span class="text">{{ $topic->down_vote }}</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td data-label="ACTION">
+                                <div class="d-inline-flex justify-content-end flex-wrap gap-2">
+                                    <a class="btn btn-outline--base btn--sm"
+                                        href="{{ route('user.topic.detail', $topic->id) }}">
+                                        <i class="las la-desktop"></i> @lang('Detail')
+                                    </a>
+                                    <a class="btn btn-outline--success btn--sm"
+                                        href="{{ route('user.topic.form', $topic->id) }}">
+                                        <i class="las la-edit"></i> @lang('Edit')
+                                    </a>
+                                    <button class="btn--sm btn-outline--danger btn confirmationBtn"
+                                        data-action="{{ route('user.topic.delete', $topic->id) }}"
+                                        data-question="@lang('Are you sure delete this topic')?">
+                                        <i class="las la-trash-alt"></i> @lang('Delete')
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td class="text-center" colspan="100%">
+                                <i class="las la-frown"></i><br>
+                                <span>{{ __($emptyMessage) }}</span>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
     <x-confirmation-modal btn="btn btn--base btn--sm" />
 @endsection

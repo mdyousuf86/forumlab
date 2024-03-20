@@ -20,9 +20,6 @@
                 <input class="form-control" id="captcha" name="captcha" type="text" required>
             @else
                 <div class="custom-icon-field">
-                    @if (!request()->routeIs('contact'))
-                        <i class="las la-code"></i>
-                    @endif
                     <input class="form--control" id="captcha" name="captcha" type="text" required>
                 </div>
             @endif
@@ -37,7 +34,8 @@
                 $('.verify-gcaptcha').on('submit', function() {
                     var response = grecaptcha.getResponse();
                     if (response.length == 0) {
-                        document.getElementById('g-recaptcha-error').innerHTML = '<span class="text--danger">@lang('Captcha field is required.')</span>';
+                        document.getElementById('g-recaptcha-error').innerHTML =
+                            '<span class="text--danger">@lang('Captcha field is required.')</span>';
                         return false;
                     }
                     return true;

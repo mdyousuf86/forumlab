@@ -1,20 +1,23 @@
 @extends($activeTemplate . 'layouts.app')
 @section('app')
-@include($activeTemplate . 'partials.header')
-<div class="main-wrapper">
-    <section class="pt-50 pb-50 px-xxl-5">
+    @include($activeTemplate . 'partials.header')
+    <section class="main-wrapper">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-12 d-xl-none d-block">
+                    <span class="aside-responsive-btn"><i class="fas fa-bars"></i></span>
+                </div>
                 @include($activeTemplate . 'partials.left_side')
-                <main class="xxxl-8 col-lg-6 px-lg-4">
-                    @yield('content')
-                </main>
+                <div class="main-col col-12 px-xxl-4">
+                    <div class="forum-wrapper">
+                        @yield('content')
+                    </div>
+                </div>
                 @include($activeTemplate . 'partials.right_side')
             </div>
         </div>
     </section>
-</div>
-@include($activeTemplate . 'partials.footer')
+    @include($activeTemplate . 'partials.footer')
 @endsection
 
 

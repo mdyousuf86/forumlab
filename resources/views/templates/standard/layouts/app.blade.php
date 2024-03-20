@@ -23,13 +23,13 @@
 
 <body>
     @stack('fbComment')
-    <div class="overlay"></div>
+    {{-- <div class="overlay"></div>
     <div class="header-overlay"></div>
     <div class="scroll-to-top">
         <span class="scroll-icon">
             <i class="las la-arrow-up"></i>
         </span>
-    </div>
+    </div> --}}
 
     {{-- <div class="preloader-holder">
         <div class="preloader">

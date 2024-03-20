@@ -59,7 +59,7 @@ class FileInfo {
         ];
         $data['ads'] = [
             'path' => 'assets/images/ads',
-            'size' => '240x370',
+            'size' => '300x370',
         ];
         $data['topic'] = [
             'path' => 'assets/images/topic',

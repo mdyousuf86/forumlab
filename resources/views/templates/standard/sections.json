@@ -12,23 +12,29 @@
             "title": "text"
         }
     },
-    "left_side_bar": {
+
+    "login": {
         "builder": true,
         "no_selection": true,
-        "name": "Left Side bar",
+        "name": "Login Section",
         "content": {
             "images": {
-                "image_one": {
-                    "size": "240x370"
+                "shape_one": {
+                    "size": "475x270"
                 },
-                "image_two": {
-                    "size": "240x370"
+                "shape_two": {
+                    "size": "380x220"
                 },
-                "image_three": {
-                    "size": "240x370"
+                "right_side_image": {
+                    "size": "800x842"
                 }
-            }        }
+            },
+            "heading": "text",
+            "subheading": "text",
+            "button_text": "text"
+        }
     },
+
     "policy_pages": {
         "builder": true,
         "no_selection": true,
@@ -39,23 +45,29 @@
             "modal": false
         }
     },
-    "login": {
-        "builder": true,
-        "no_selection": true,
-        "name": "Login Section",
-        "content": {
-            "text": "text"
-        }
-    },
+
     "register": {
         "builder": true,
         "no_selection": true,
         "name": "Register Section",
         "content": {
-            "ad_title": "text",
-            "short_description": "text"
+            "images": {
+                "shape_one": {
+                    "size": "475x270"
+                },
+                "shape_two": {
+                    "size": "380x220"
+                },
+                "right_side_image": {
+                    "size": "800x842"
+                }
+            },
+            "heading": "text",
+            "subheading": "text",
+            "button_text": "text"
         }
     },
+
     "social_icon": {
         "builder": true,
         "no_selection": true,
@@ -72,13 +84,32 @@
         "no_selection": true,
         "name": "Contact Us",
         "content": {
+            "images": {
+                "shape_one": {
+                    "size": "230x180"
+                }
+            },
             "heading": "text",
             "subheading": "text",
             "contact_address": "text",
             "contact_number": "text",
-            "contact_email": "text"
+            "contact_email": "text",
+            "map_url": "text"
         }
     },
+    "dashboard": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Dashboard",
+        "content": {
+            "images": {
+                "banner_image": {
+                    "size": "1100x215"
+                }
+            }
+        }
+    },
+    
     "auth_page": {
         "builder": true,
         "no_selection": true,

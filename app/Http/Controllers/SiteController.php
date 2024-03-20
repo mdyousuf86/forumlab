@@ -56,7 +56,6 @@ class SiteController extends Controller
             $notify[] = ['warning', "Sorry !, No topic found under this forum"];
             return back()->withNotify($notify);
         }
-
         $pageTitle = $slug . ' - All Categories';
         return view($this->activeTemplate . 'forums', compact('pageTitle', 'forums'));
     }

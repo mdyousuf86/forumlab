@@ -16,13 +16,15 @@ use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider {
+class AppServiceProvider extends ServiceProvider
+{
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
     }
 
     /**
@@ -30,7 +32,8 @@ class AppServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         $general                         = gs();
         $activeTemplate                  = activeTemplate();
         $viewShare['general']            = $general;
@@ -59,7 +62,27 @@ class AppServiceProvider extends ServiceProvider {
 
         view()->composer($activeTemplate . 'partials.left_side', function ($view) {
             $view->with([
-                'forums'      => Forum::active()->latest()->get(),
+                'forums'           => Forum::active()->latest()->get(),
+                'forumCount'       => Forum::active()->count(),
+                'categoryCount'    => Category::available()->count(),
+                'subCategoryCount' => Subcategory::available()->count(),
+                'topicCount'       => Topic::available()->count(),
+                'topContributors'  => Comment::selectRaw('user_id, count(*) as total')
+                    ->with('user')
+                    ->groupBy('user_id')
+                    ->orderBy('total', 'desc')
+                    ->limit(10)
+                    ->get(),
+
+                'hots' => Comment::selectRaw('topic_id, count(*) as total')
+                    ->whereDate('created_at', '>', now()->subDays(3))
+                    ->with('topic.user')
+                    ->groupBy('topic_id')
+                    ->orderBy('total', 'desc')
+                    ->limit(10)
+                    ->whereHas('topic', function ($topic) {
+                        $topic->available();
+                    })->get(),
                 'categories'  => Category::available()
                     ->latest()
                     ->get(),

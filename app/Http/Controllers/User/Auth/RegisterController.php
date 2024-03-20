@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
-class RegisterController extends Controller {
+class RegisterController extends Controller
+{
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -33,13 +34,15 @@ class RegisterController extends Controller {
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->middleware('guest');
         $this->middleware('registration.status')->except('registrationNotAllowed');
     }
 
-    public function showRegistrationForm() {
+    public function showRegistrationForm()
+    {
         $pageTitle  = "Register";
         $info       = json_decode(json_encode(getIpInfo()), true);
         $mobileCode = @implode(',', $info['code']);
@@ -53,7 +56,8 @@ class RegisterController extends Controller {
      * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data) {
+    protected function validator(array $data)
+    {
         $countryData        = (array) json_decode(file_get_contents(resource_path('views/partials/country.json')));
         $countries          = implode(',', array_keys($countryData));
         $general            = gs();
@@ -77,7 +81,8 @@ class RegisterController extends Controller {
         return $validate;
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $this->validator($request->all())->validate();
 
         $request->session()->regenerateToken();
@@ -104,7 +109,7 @@ class RegisterController extends Controller {
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
-        ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath());
     }
 
     /**
@@ -113,7 +118,8 @@ class RegisterController extends Controller {
      * @param  array $data
      * @return \App\User
      */
-    protected function create(array $data) {
+    protected function create(array $data)
+    {
         $general = gs();
 
         $countryData = json_decode(file_get_contents(resource_path('views/partials/country.json')));
@@ -176,7 +182,8 @@ class RegisterController extends Controller {
         return $user;
     }
 
-    public function checkUser(Request $request) {
+    public function checkUser(Request $request)
+    {
         $exist['data'] = false;
         $exist['type'] = null;
         if ($request->email) {
@@ -194,8 +201,8 @@ class RegisterController extends Controller {
         return response($exist);
     }
 
-    public function registered() {
+    public function registered()
+    {
         return to_route('user.home');
     }
-
 }
