@@ -33,13 +33,14 @@
                                 <div class="form-group">
                                     <input type="text" class="form--control checkUser" id="username" name="username"
                                         placeholder="Username" value="{{ old('username') }}" required>
+                                        <small class="text--danger usernameExist"></small>
                                 </div>
-                                <small class="text--danger usernameExist"></small>
+                            
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form--control checkUser" id="email" name="email"
-                                        id="email" placeholder="Email" value="{{ old('email') }}" required>
+                                    <input type="text" class="form--control checkUser"  name="email"
+                                         placeholder="Email" value="{{ old('email') }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -62,33 +63,34 @@
                                     </div>
                                 </div>
                             </div>
-                            @if ($general->secure_password)
-                                <div class="input-popup">
-                                    <p class="error lower">@lang('1 small letter minimum')</p>
-                                    <p class="error capital">@lang('1 capital letter minimum')</p>
-                                    <p class="error number">@lang('1 number minimum')</p>
-                                    <p class="error special">@lang('1 special character minimum')</p>
-                                    <p class="error minimum">@lang('6 character password')</p>
-                                </div>
-                            @endif
-                            
+
+
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="position-relative">
-                                        <input id="your-password" placeholder="@lang('Password')" type="password" class="form-control form--control"
-                                        name="password">
+                                        <input id="your-password" placeholder="@lang('Password')" type="password"
+                                            class="form-control form--control " name="password">
                                         <span class="password-show-hide fas fa-eye toggle-password fa-eye-slash"
-                                            id="#your-password"></span>
+                                            id="#password"></span>
+                                        @if ($general->secure_password)
+                                            <div class="input-popup">
+                                                <p class="error lower">@lang('1 small letter minimum')</p>
+                                                <p class="error capital">@lang('1 capital letter minimum')</p>
+                                                <p class="error number">@lang('1 number minimum')</p>
+                                                <p class="error special">@lang('1 special character minimum')</p>
+                                                <p class="error minimum">@lang('6 character password')</p>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="position-relative">
-                                        <input id="your-password2" placeholder="@lang('Confirm Password')" name="password_confirmation" type="password" class="form-control form--control"
-                                            >
+                                        <input id="your-password2" placeholder="@lang('Confirm Password')"
+                                            name="password_confirmation" type="password" class="form-control form--control">
                                         <span class="password-show-hide fas fa-eye toggle-password fa-eye-slash"
-                                            id="#your-password2"></span>
+                                            id="#password_confirmation"></span>
                                     </div>
                                 </div>
                             </div>
@@ -127,6 +129,28 @@
                         </div>
                     </form>
                 </div>
+
+                <div class="modal fade" id="existModalCenter">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="existModalLongTitle">@lang('You are with us')</h5>
+                                <span class="close" data-bs-dismiss="modal" type="button" aria-label="Close">
+                                    <i class="las la-times"></i>
+                                </span>
+                            </div>
+                            <div class="modal-body">
+                                <h6 class="text-center">@lang('You already have an account please Login ')</h6>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-dark btn--sm" data-bs-dismiss="modal"
+                                    type="button">@lang('Close')</button>
+                                <a class="btn btn--base btn--sm" href="{{ route('user.login') }}">@lang('Login')</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="account__right">
                 <div class="account__thumb">

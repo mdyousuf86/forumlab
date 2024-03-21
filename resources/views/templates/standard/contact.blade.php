@@ -51,7 +51,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="name">@lang('Name')</label>
-                                        <input class="form--control" id="name" name="name" type="text"
+                                        <input class="form--control"  name="name" type="text"
                                             value="@if (@$user) {{ @$user->fullname }} @else{{ old('name') }} @endif"
                                             @if (@$user) readonly @endif required>
                                     </div>

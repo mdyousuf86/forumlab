@@ -2,7 +2,6 @@
 @section('app')
     @php
         $login = getContent('login.content', true);
-        $authPage = getContent('auth_page.content', true);
     @endphp
     <section class="account">
         <span class="account__shape"><img
@@ -34,10 +33,10 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="position-relative">
-                                        <input id="your-password" name="password" type="password"
-                                            class="form-control form--control" value="Password" required>
+                                        <input id="your-password" type="password" name="password"
+                                            class="form-control form--control" required>
                                         <span class="password-show-hide fas fa-eye toggle-password fa-eye-slash"
-                                            id="#your-password"></span>
+                                            id="#password"></span>
                                     </div>
                                 </div>
                             </div>

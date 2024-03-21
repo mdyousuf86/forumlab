@@ -35,17 +35,6 @@
         }
     },
 
-    "policy_pages": {
-        "builder": true,
-        "no_selection": true,
-        "name": "Policy Pages",
-        "element": {
-            "title": "text",
-            "details": "textarea-nic",
-            "modal": false
-        }
-    },
-
     "register": {
         "builder": true,
         "no_selection": true,
@@ -67,6 +56,32 @@
             "button_text": "text"
         }
     },
+
+    "profile": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Profile",
+        "content": {
+            "images": {
+                "background_image": {
+                    "size": "1100x220"
+                }
+            }
+        }
+    },
+
+    
+    "policy_pages": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Policy Pages",
+        "element": {
+            "title": "text",
+            "details": "textarea-nic",
+            "modal": false
+        }
+    },
+
 
     "social_icon": {
         "builder": true,

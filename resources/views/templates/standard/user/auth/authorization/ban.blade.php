@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-12 text-center">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mt-5">
                         <div class="col-xl-10">
                             <h4 class="text--danger mb-3">{{ __(@$banned->data_values->heading) }}</h4>
                         </div>

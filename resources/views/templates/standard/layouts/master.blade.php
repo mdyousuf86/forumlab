@@ -5,7 +5,6 @@
         $dashboardContent = getContent('dashboard.content', true);
         $user = authUser();
     @endphp
-
     <section class="contact-section">
         <div class="container">
             @include($activeTemplate . 'partials.dashboard_sidebar')

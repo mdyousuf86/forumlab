@@ -1,64 +1,3 @@
-<!-- header-section start  -->
-{{-- <header class="header">
-    <div class="header__bottom px-xl-5">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-xl align-items-center p-0">
-                <a class="site-logo site-title" href="{{ route('home') }}">
-                    <img src="{{ getImage(getFilePath('logoIcon') . '/logo.png') }}" alt="logo">
-                </a>
-                <button class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="menu-toggle"></span>
-                </button>
-                <button class="header-search-open-btn">
-                    <i class="las la-search"></i>
-                </button>
-                <form class="header-search-form header-search-form-mobile" action="{{ route('home') }}">
-                    <input class="header-search-form__input text-white" name="search" type="text"
-                        value="{{ request()->search }}" placeholder="@lang('Search Here')...">
-                    <button class="header-search-form__btn" type="submit"><i class="las la-search"></i></button>
-                </form>
-                <div class="collapse navbar-collapse mt-lg-0 mt-3" id="navbarSupportedContent">
-                    <div class="header-search-area ms-auto">
-                        <form class="header-search-form" action="{{ route('home') }}">
-                            <input class="header-search-form__input text-white" name="search" type="text"
-                                value="{{ request()->search }}" placeholder="@lang('Search Post Title')...">
-                            <button class="header-search-form__btn" type="submit"><i
-                                    class="las la-search"></i></button>
-                        </form>
-                    </div>
-
-                    <ul class="navbar-nav main-menu ms-auto">
-                        <li><a class="{{ menuActive('home') }}" href="{{ route('home') }}">@lang('Home')</a></li>
-                        <li><a class="{{ menuActive('all.topic') }}"
-                                href="{{ route('all.topic') }}">@lang('All Topic')</a></li>
-                        <li><a class="{{ menuActive('contact') }}" href="{{ route('contact') }}">@lang('Contact')</a>
-                        </li>
-                    </ul>
-                    <div class="nav-right d-flex align-items-center">
-                        @if ($general->multi_language)
-                            <select class="language langSel" name="site-language">
-                                @foreach ($language as $item)
-                                    <option value="{{ __($item->code) }}"
-                                        @if (session('lang') == $item->code) selected @endif>{{ __($item->name) }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        @endif
-                        @auth
-                            <a class="btn btn-md btn--gradient" href="{{ route('user.home') }}"><i
-                                    class="las la-user fs--18px me-2"></i>@lang('Dashboard')</a>
-                        @else
-                            <a class="btn btn-md btn--gradient" href="{{ route('user.login') }}"><i
-                                    class="las la-user fs--18px me-2"></i>@lang('Login')</a>
-                        @endauth
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-</header> --}}
 
 @php
     $header = getContent('header.content', true);
@@ -193,38 +132,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="category-nav">
-                                <button class="category-nav__button tagButton">@lang('ALL Tags')<span class="arrow-icon"><i
-                                            class="fli-sort-down"></i></span></button>
-                                <ul class="dropdown--menu tagArea">
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Breaking Topic')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Crypto Market')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Web Host')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Java')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Crypto Market')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Application Server')</a>
-                                    </li>
-                                    <li class="dropdown--menu__item">
-                                        <a href="#" class="dropdown--menu__link">@lang('Wordpress')</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Latest')</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Unread')</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Rising')</a></li>
-                        <li class="forum-menu__item"><a href="#" class="forum-menu__link">@lang('Most Liked')</a></li>
                     </ul>
                     <a href="{{route('user.topic.form')}}" class="btn btn--dark">@lang('Create Topic')<i class="fli-plus"></i></a>
                 </div>
